@@ -1,0 +1,35 @@
+# Top-level EditorConfig file
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Indentation rules
+indent_style = space
+indent_size = 4
+
+# Specific for GDScript
+[*.gd]
+indent_size = 4
+
+# Specific for C#
+[*.cs]
+indent_size = 4
+
+# Specific for Twine (optional)
+[*.tw]
+indent_size = 2
+
+# Godot Config Files
+[*.{cfg,ini,tres,res,tscn}]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = false
+insert_final_newline = true
+
+# Markdown and text
+[*.md]
+trim_trailing_whitespace = false
