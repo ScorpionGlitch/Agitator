@@ -12,5 +12,4 @@ func _process(delta):
 
 func _on_player_combat_component_punch() -> void:
 	set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-	print("punch!!!")
 	pass # Replace with function body.

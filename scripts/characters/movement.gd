@@ -31,12 +31,9 @@ var motion: Vector3
 var move_speed : float = base_speed
 var freeflying : bool = false
 
-var anim_component : AnimationTree
-
 func _ready() -> void:
 	move_speed = base_speed
 	freeflying = false
-	anim_component = game_character.get_node_or_null("Armature/AnimationTree")
 
 func _physics_process(delta):
 	'''
@@ -48,15 +45,7 @@ func _physics_process(delta):
 		if not game_character.is_on_floor():
 			game_character.velocity += game_character.get_gravity() * delta
 		else:
-			if anim_component:
-				horizontal_speed = Vector2(game_character.velocity.x, game_character.velocity.z).length()
-				if horizontal_speed > 0.1:
-					#anim_component.play_anim("ybot_animations/YBot_Walking")
-					pass
-				else:
-					#anim_component.play_anim("ybot_animations/YBot_Idle")
-					pass
-	
+			horizontal_speed = Vector2(game_character.velocity.x, game_character.velocity.z).length()
 	# Use velocity to actually move
 	game_character.move_and_slide()
 

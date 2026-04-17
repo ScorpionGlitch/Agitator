@@ -3,40 +3,29 @@ class_name PlayerCombatComponent
 
 signal punch
 
+@export var interaction_probe: InteractionProbe
 @export var attack_damage: int = 1
 @export var attack_cooldown: float = 0.4
+
 var can_attack: bool = true
-var player: Node = null
 
 func _ready() -> void:
-	player = get_parent()
+	pass
 
 func do_attack():
 	if not can_attack:
 		return
-	
 	can_attack = false
-	print("Player attack!")
 	emit_signal("punch")
-	
-	#var anim_component = player.get_node_or_null("Armature/PlayerAnimationComponent")
-	#if anim_component:
-	#	#anim_component.play_anim("ybot_animations/ybot_right_hook")
-	#	anim_component.play_anim("ybot_animations/ybot_right_hook")
-	
-	var probe = player.get_node_or_null("InteractionProbeComponent")
 	var target = null
-	if probe:
-		target = probe.get_target_in_sight()
+	if interaction_probe:
+		target = interaction_probe.get_target_in_sight()
 		if target:
 			var health_comp = target.get_node_or_null("HealthComponent")
 			if health_comp:
 				health_comp.take_damage(attack_damage)
 			else:
-				print("Target found but has no HealthComponent:", target.name)
-	else:
-		print("No probe component found")
-	
+				push_warning("PlayerCombatComponent: target %s has no HealthComponent" % target.name)
 	# Cooldown
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
