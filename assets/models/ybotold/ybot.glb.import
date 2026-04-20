@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://co8j4hbngijdx"
-path="res://.godot/imported/ybot.glb-e874a6dea0a834bce5e356fbf2efa411.scn"
+path="res://.godot/imported/ybot.glb-20b54cfbe307fafd6ae491493fe41c4e.scn"
 
 [deps]
 
-source_file="res://assets/models/ybot/ybot.glb"
-dest_files=["res://.godot/imported/ybot.glb-e874a6dea0a834bce5e356fbf2efa411.scn"]
+source_file="res://assets/models/ybotold/ybot.glb"
+dest_files=["res://.godot/imported/ybot.glb-20b54cfbe307fafd6ae491493fe41c4e.scn"]
 
 [params]
 

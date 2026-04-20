@@ -11,5 +11,5 @@ func _process(delta):
 
 
 func _on_player_combat_component_punch() -> void:
-	set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	set("parameters/PunchWalking/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	pass # Replace with function body.

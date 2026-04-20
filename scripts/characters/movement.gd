@@ -16,11 +16,11 @@ class_name MovementComponent
 
 @export_group("Speeds")
 ## Normal speed.
-@export var base_speed : float = 7.0
+@export var base_speed : float = 2.5
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
-@export var sprint_speed : float = 10.0
+@export var sprint_speed : float = 3.0
 ## How fast do we freefly?
 @export var freefly_speed : float = 25.0
 
@@ -29,6 +29,7 @@ var horizontal_speed: float
 var motion: Vector3
 
 var move_speed : float = base_speed
+var _acc_speed : float = .01
 var freeflying : bool = false
 
 func _ready() -> void:
@@ -53,11 +54,11 @@ func move(move_dir) -> void:
 	# Apply desired movement to velocity
 	if can_move:
 		if move_dir:
-			game_character.velocity.x = move_dir.x * move_speed
-			game_character.velocity.z = move_dir.z * move_speed
+			game_character.velocity.x = move_toward(game_character.velocity.x, move_dir.x * move_speed, _acc_speed)
+			game_character.velocity.z = move_toward(game_character.velocity.z, move_dir.z * move_speed, _acc_speed)
 		else:
-			game_character.velocity.x = move_toward(game_character.velocity.x, 0, move_speed)
-			game_character.velocity.z = move_toward(game_character.velocity.z, 0, move_speed)
+			game_character.velocity.x = move_toward(game_character.velocity.x, 0, _acc_speed)
+			game_character.velocity.z = move_toward(game_character.velocity.z, 0, _acc_speed)
 	else:
 		game_character.velocity.x = 0
 		game_character.velocity.z = 0

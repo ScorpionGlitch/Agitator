@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ti45j77jpj80"
-path="res://.godot/imported/ybot_right_hook.glb-f50b15f40a5124e64b4952cd9a3d1432.scn"
+path="res://.godot/imported/ybot_right_hook.glb-f12128e1bbaeb7dae27304bf5d3e20ea.scn"
 
 [deps]
 
-source_file="res://assets/models/ybot/ybot_right_hook.glb"
-dest_files=["res://.godot/imported/ybot_right_hook.glb-f50b15f40a5124e64b4952cd9a3d1432.scn"]
+source_file="res://assets/models/ybotold/ybot_right_hook.glb"
+dest_files=["res://.godot/imported/ybot_right_hook.glb-f12128e1bbaeb7dae27304bf5d3e20ea.scn"]
 
 [params]
 
