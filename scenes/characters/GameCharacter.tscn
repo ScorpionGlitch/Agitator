@@ -1,0 +1,94 @@
+[gd_scene load_steps=19 format=3 uid="uid://ckhdp8t1b4y2y"]
+
+[ext_resource type="Script" uid="uid://csl14vqkylq6a" path="res://scripts/characters/game_character.gd" id="1_xdmjr"]
+[ext_resource type="PackedScene" uid="uid://ujwxyyypcdrc" path="res://assets/models/ybot/y_bot.tscn" id="2_row5t"]
+[ext_resource type="Script" uid="uid://dq7eeh5jf6t3l" path="res://scripts/characters/movement.gd" id="2_yrlk8"]
+[ext_resource type="Script" uid="uid://buvus6fbdhj8p" path="res://scripts/characters/npcs/npc_controller.gd" id="3_ddh1h"]
+[ext_resource type="Script" uid="uid://dxcsxq7n1je02" path="res://scripts/characters/character_mesh.gd" id="3_dg8n3"]
+[ext_resource type="Script" uid="uid://2ww2ov54078c" path="res://scripts/components/interaction_component.gd" id="4_6c0r3"]
+[ext_resource type="Animation" uid="uid://d4jtctyj1ix2r" path="res://assets/models/ybot/animations/unarmed_running.res" id="4_44f2m"]
+[ext_resource type="Animation" uid="uid://86hp8p6yqxp1" path="res://assets/models/ybot/animations/unarmed_walking.res" id="5_6pyff"]
+[ext_resource type="Script" uid="uid://j8w5uvwyb5tu" path="res://scripts/dialog/dialog_resource.gd" id="5_psfgm"]
+[ext_resource type="Animation" uid="uid://hqd3xoruqf52" path="res://assets/models/ybot/animations/unarmed_idling.res" id="6_263ys"]
+[ext_resource type="Script" uid="uid://2hlhuscrpx6f" path="res://scripts/characters/npcs/dialog_component.gd" id="6_ypnxn"]
+[ext_resource type="Script" uid="uid://b5th4uvh6jiig" path="res://scenes/characters/player/health_component.gd" id="8_17qo7"]
+[ext_resource type="Script" uid="uid://bggcwklca4g6i" path="res://scripts/characters/interaction_probe.gd" id="10_row5t"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6j8hg"]
+_data = {
+&"unarmed_idling": ExtResource("6_263ys"),
+&"unarmed_running": ExtResource("4_44f2m"),
+&"unarmed_walking": ExtResource("5_6pyff")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lsa2g"]
+animation = &"ybot_npc_animations/unarmed_walking"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_row5t"]
+resource_name = "GameCharacter/Y Bot/AnimationPlayer"
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lsa2g")
+nodes/Animation/position = Vector2(620, 180)
+nodes/output/position = Vector2(1240, 180)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vu2ii"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="Resource" id="Resource_kwsb3"]
+script = ExtResource("5_psfgm")
+dialogs = {}
+
+[node name="GameCharacter" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_xdmjr")
+
+[node name="CharacterMesh" parent="." instance=ExtResource("2_row5t")]
+script = ExtResource("3_dg8n3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterMesh"]
+libraries = {
+&"ybot_npc_animations": SubResource("AnimationLibrary_6j8hg")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="CharacterMesh"]
+tree_root = SubResource("AnimationNodeBlendTree_row5t")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="CharacterCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.902421, 0)
+shape = SubResource("CapsuleShape3D_vu2ii")
+
+[node name="Movement" type="Node" parent="."]
+script = ExtResource("2_yrlk8")
+base_speed = 1.0
+
+[node name="NPCController" type="Node" parent="." node_paths=PackedStringArray("movement")]
+script = ExtResource("3_ddh1h")
+movement = NodePath("../Movement")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("4_6c0r3")
+
+[node name="DialogComponent" type="Node" parent="."]
+script = ExtResource("6_ypnxn")
+dialog_resource = SubResource("Resource_kwsb3")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("8_17qo7")
+
+[node name="HitFlashComponent" type="Node" parent="."]
+
+[node name="InteractionProbeComponent" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, 0)
+target_position = Vector3(0, 1.5, 0)
+collision_mask = 4
+collide_with_areas = true
+script = ExtResource("10_row5t")
+
+[connection signal="timeout" from="Timer" to="NPCController" method="_on_timer_timeout"]
+[connection signal="Interacted" from="InteractionComponent" to="DialogComponent" method="StartDialog"]

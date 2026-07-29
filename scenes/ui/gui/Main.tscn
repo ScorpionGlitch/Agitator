@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://biafxigvb2upx"]
+
+[ext_resource type="Script" uid="uid://dwqjl1at61rtx" path="res://scripts/gui/main.gd" id="1_b44b4"]
+[ext_resource type="PackedScene" uid="uid://bks4die8lt871" path="res://scenes/ui/gui/menus/IntroScorpionGlitch.tscn" id="2_s8t4s"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_b44b4")
+
+[node name="IntroScorpionGlitch" parent="." instance=ExtResource("2_s8t4s")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

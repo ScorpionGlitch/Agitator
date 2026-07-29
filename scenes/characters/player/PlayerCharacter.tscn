@@ -1,0 +1,272 @@
+[gd_scene load_steps=33 format=3 uid="uid://bgu00yd27ay15"]
+
+[ext_resource type="Script" uid="uid://lxvg7vdrxvfp" path="res://scripts/characters/player/player_character.gd" id="1_0ex1o"]
+[ext_resource type="Script" uid="uid://bxs01fes6mgtw" path="res://scripts/characters/notification.gd" id="1_gld0b"]
+[ext_resource type="Script" uid="uid://dxcsxq7n1je02" path="res://scripts/characters/character_mesh.gd" id="2_55rub"]
+[ext_resource type="PackedScene" uid="uid://ujwxyyypcdrc" path="res://assets/models/ybot/y_bot.tscn" id="3_k33qo"]
+[ext_resource type="Script" uid="uid://cqdn028heu073" path="res://scripts/characters/player/player_controller.gd" id="3_ypqra"]
+[ext_resource type="PackedScene" uid="uid://d15lijatfs2no" path="res://scenes/characters/player/PlayerCamera.tscn" id="4_cg1dj"]
+[ext_resource type="AnimationLibrary" uid="uid://8oqctqdtmfaa" path="res://assets/models/ybot/animations/ybot_animation_library.tres" id="4_fr12m"]
+[ext_resource type="Script" uid="uid://11crbkfju26l" path="res://scenes/characters/player/fist_collision.gd" id="4_ky5d6"]
+[ext_resource type="Script" uid="uid://dq7eeh5jf6t3l" path="res://scripts/characters/movement.gd" id="5_d1o3u"]
+[ext_resource type="Script" uid="uid://e2fonakuldwc" path="res://scenes/characters/player/animation_component.gd" id="5_jveve"]
+[ext_resource type="Script" uid="uid://bggcwklca4g6i" path="res://scripts/characters/interaction_probe.gd" id="6_0j7ed"]
+[ext_resource type="PackedScene" uid="uid://bkl44bkyntnlr" path="res://scenes/characters/player/PlayerHUD.tscn" id="7_fdjgc"]
+[ext_resource type="Script" uid="uid://clcdtcevbmj6x" path="res://scenes/characters/player/player_combat_component.gd" id="9_bx55h"]
+[ext_resource type="Script" uid="uid://b5th4uvh6jiig" path="res://scenes/characters/player/health_component.gd" id="10_di0nh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bjcq"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_njhyi"]
+material = SubResource("StandardMaterial3D_2bjcq")
+radius = 0.1
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocdoj"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dax2x"]
+material = SubResource("StandardMaterial3D_ocdoj")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jveve"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_ql0hy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GeneralSkeleton/RightHand/Area3D/FistCollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k33qo"]
+_data = {
+&"RESET": SubResource("Animation_ql0hy")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wvt0m"]
+animation = &"ybot_animation_library/unarmed_idling"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_caukd"]
+animation = &"ybot_animation_library/unarmed_idling"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0qkbo"]
+animation = &"ybot_animation_library/unarmed_walking"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ym4da"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_caukd")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_0qkbo")
+blend_point_1/pos = 1.0
+min_space = 0.0
+value_label = ""
+sync = true
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k33qo"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3oa60"]
+animation = &"ybot_animation_library/unarmed_punching_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6kj8t"]
+animation = &"ybot_animation_library/unarmed_punching_right"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_v24ma"]
+fadein_time = 0.2
+fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_u04sh"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightIndexDistal", "%GeneralSkeleton:RightIndexIntermediate", "%GeneralSkeleton:RightIndexProximal", "%GeneralSkeleton:RightLittleDistal", "%GeneralSkeleton:RightLittleIntermediate", "%GeneralSkeleton:RightLittleProximal", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightMiddleDistal", "%GeneralSkeleton:RightMiddleIntermediate", "%GeneralSkeleton:RightMiddleProximal", "%GeneralSkeleton:RightRingDistal", "%GeneralSkeleton:RightRingIntermediate", "%GeneralSkeleton:RightRingProximal", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightThumbDistal", "%GeneralSkeleton:RightThumbMetacarpal", "%GeneralSkeleton:RightThumbProximal", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:UpperChest", "%GeneralSkeleton:mixamorig_RightHandThumb4", "GeneralSkeleton/RightHand/Area3D/FistCollisionShape3D:disabled"]
+fadein_time = 0.2
+fadeout_time = 0.5
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wvt0m"]
+resource_name = "GameCharacter/Y Bot/AnimationPlayer"
+nodes/IdleAnimation/node = SubResource("AnimationNodeAnimation_wvt0m")
+nodes/IdleAnimation/position = Vector2(1620, 0)
+nodes/Locomotion/node = SubResource("AnimationNodeBlendSpace1D_ym4da")
+nodes/Locomotion/position = Vector2(1760, 360)
+nodes/Moving/node = SubResource("AnimationNodeBlend2_k33qo")
+nodes/Moving/position = Vector2(2440.66, 253.289)
+nodes/Punch/node = SubResource("AnimationNodeAnimation_6kj8t")
+nodes/Punch/position = Vector2(1560, 160)
+"nodes/Punch 2/node" = SubResource("AnimationNodeAnimation_3oa60")
+"nodes/Punch 2/position" = Vector2(1540, 540)
+nodes/PunchStanding/node = SubResource("AnimationNodeOneShot_v24ma")
+nodes/PunchStanding/position = Vector2(2185.9, 57.0999)
+nodes/PunchWalking/node = SubResource("AnimationNodeOneShot_u04sh")
+nodes/PunchWalking/position = Vector2(2180, 380)
+nodes/output/position = Vector2(2700, 220)
+node_connections = [&"Moving", 0, &"PunchStanding", &"Moving", 1, &"PunchWalking", &"PunchStanding", 0, &"IdleAnimation", &"PunchStanding", 1, &"Punch", &"PunchWalking", 0, &"Locomotion", &"PunchWalking", 1, &"Punch 2", &"output", 0, &"Moving"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vu2ii"]
+radius = 0.4
+height = 1.8
+
+[node name="PlayerCharacter" type="CharacterBody3D"]
+script = ExtResource("1_0ex1o")
+
+[node name="Notification" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_njhyi")
+script = ExtResource("1_gld0b")
+
+[node name="Dot" type="MeshInstance3D" parent="Notification"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000265598, -0.643906, -5.72205e-06)
+mesh = SubResource("CapsuleMesh_dax2x")
+skeleton = NodePath("../..")
+
+[node name="YBot" parent="." instance=ExtResource("3_k33qo")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_55rub")
+
+[node name="GeneralSkeleton" parent="YBot" index="0"]
+bones/0/position = Vector3(0.0342331, 0.974746, 0.0071302)
+bones/0/rotation = Quaternion(0.0076473, -0.00967215, -0.0100158, 0.999874)
+bones/1/rotation = Quaternion(0.000803207, 0.00587935, -0.00352488, 0.999976)
+bones/2/rotation = Quaternion(0.00160961, 0.0120277, -0.00769804, 0.999897)
+bones/3/rotation = Quaternion(0.00160961, 0.0120277, -0.00769805, 0.999897)
+bones/4/rotation = Quaternion(0.0225029, -0.000964199, 0.00780898, 0.999716)
+bones/5/rotation = Quaternion(0.0169762, -0.000950486, 0.0262139, 0.999512)
+bones/7/rotation = Quaternion(0.488165, 0.467171, 0.645505, -0.356048)
+bones/8/rotation = Quaternion(-0.147642, 0.868538, -0.472106, 0.0309797)
+bones/9/rotation = Quaternion(0.190933, -0.57206, 0.139824, 0.785329)
+bones/10/rotation = Quaternion(-0.0187555, 0.830393, -0.0258177, 0.556263)
+bones/11/rotation = Quaternion(-0.120438, 0.642009, 0.197795, 0.730887)
+bones/12/rotation = Quaternion(0.0581569, 0.0290122, -0.00409305, 0.997877)
+bones/13/rotation = Quaternion(0, 0, 0, 1)
+bones/14/scale = Vector3(1.0006, 1.00049, 1.00012)
+bones/15/rotation = Quaternion(0.326009, 0.00855609, 0.0553356, 0.943707)
+bones/16/rotation = Quaternion(0.53757, -0.010389, 0.0433167, 0.842042)
+bones/17/rotation = Quaternion(0, 0, 0, 1)
+bones/19/rotation = Quaternion(0.485905, -0.0237453, 0.0911229, 0.868924)
+bones/20/rotation = Quaternion(0.67588, -0.00487819, 0.0685157, 0.733804)
+bones/21/rotation = Quaternion(0, 0, 0, 1)
+bones/23/rotation = Quaternion(0.498022, -0.0851056, 0.0352515, 0.862258)
+bones/24/rotation = Quaternion(0.694789, 0.00523169, 0.0480924, 0.717584)
+bones/25/rotation = Quaternion(0, 0, 0, 1)
+bones/27/rotation = Quaternion(0.570877, -0.1269, 0.0260136, 0.810752)
+bones/28/rotation = Quaternion(0.634968, 0.024873, 0.0494757, 0.770551)
+bones/29/rotation = Quaternion(0, 0, 0, 1)
+bones/31/rotation = Quaternion(0.519824, -0.446124, -0.606026, -0.404338)
+bones/32/rotation = Quaternion(0.0604647, 0.848196, -0.526133, 0.00958715)
+bones/33/rotation = Quaternion(0.200451, 0.58105, -0.257607, 0.745546)
+bones/34/rotation = Quaternion(-0.0241381, -0.766448, -0.203673, 0.60868)
+bones/35/rotation = Quaternion(-0.192041, -0.618803, -0.170992, 0.74227)
+bones/36/rotation = Quaternion(0.0148873, -0.220041, -0.123924, 0.967473)
+bones/37/rotation = Quaternion(0, 0, 0, 1)
+bones/38/scale = Vector3(1.00061, 1.00049, 1.00012)
+bones/39/rotation = Quaternion(0.450777, 0.0267945, -0.00827694, 0.892196)
+bones/40/rotation = Quaternion(0.620483, 0.029104, -0.0425288, 0.782525)
+bones/41/rotation = Quaternion(0, 0, 0, 1)
+bones/43/rotation = Quaternion(0.504827, 0.0431334, -0.0241315, 0.861804)
+bones/44/rotation = Quaternion(0.660897, 0.0349181, -0.0536354, 0.747743)
+bones/45/rotation = Quaternion(0, 0, 0, 1)
+bones/47/rotation = Quaternion(0.486459, 0.0140252, -0.0462485, 0.872366)
+bones/48/rotation = Quaternion(0.710717, -0.0173583, -0.063329, 0.700407)
+bones/49/rotation = Quaternion(0, 0, 0, 1)
+bones/51/rotation = Quaternion(0.455636, 0.00238277, -0.0693298, 0.887459)
+bones/52/rotation = Quaternion(0.745666, -0.045128, -0.0854102, 0.65928)
+bones/53/rotation = Quaternion(0, 0, 0, 1)
+bones/55/rotation = Quaternion(0.0686976, 0.151953, 0.985994, 0.00260411)
+bones/56/rotation = Quaternion(0.00866909, 0.971649, -0.225191, -0.0715029)
+bones/57/rotation = Quaternion(0.0239767, 0.647205, -0.761695, -0.0192978)
+bones/58/rotation = Quaternion(-0.0328065, 0.997824, 0.0356569, 0.0447198)
+bones/60/rotation = Quaternion(-0.069732, 0.127185, 0.989293, 0.0161237)
+bones/61/rotation = Quaternion(0.0140485, 0.881005, -0.47267, -0.0146715)
+bones/62/rotation = Quaternion(-0.0539382, 0.777535, -0.621224, 0.0813041)
+bones/63/rotation = Quaternion(0.0475084, 0.95831, 0.250551, -0.128875)
+
+[node name="Head" type="BoneAttachment3D" parent="YBot/GeneralSkeleton" index="2"]
+transform = Transform3D(0.999419, -0.00742682, 0.0332721, 0.0108536, 0.994515, -0.104028, -0.032317, 0.104328, 0.994018, 0.0605277, 1.7519, 0.105682)
+bone_name = "mixamorig_HeadTop_End"
+bone_idx = 6
+
+[node name="InteractionProbeComponent" type="RayCast3D" parent="YBot/GeneralSkeleton/Head"]
+transform = Transform3D(0.98783, 0.155514, -0.00281688, -0.0238016, 0.133242, -0.990798, -0.153708, 0.978806, 0.135322, 0, -0.1, 0)
+target_position = Vector3(0, 1.5, 1)
+collision_mask = 4
+collide_with_areas = true
+script = ExtResource("6_0j7ed")
+
+[node name="RightHand" type="BoneAttachment3D" parent="YBot/GeneralSkeleton" index="3"]
+transform = Transform3D(0.649389, 0.426066, 0.629891, 0.495247, -0.86552, 0.0748727, 0.577084, 0.26333, -0.773067, -0.253763, 0.833366, 0.191663)
+bone_name = "RightIndexProximal"
+bone_idx = 39
+
+[node name="Area3D" type="Area3D" parent="YBot/GeneralSkeleton/RightHand"]
+transform = Transform3D(0.0094761, -0.00199822, 0.0024921, 0.00250142, 0.00949403, -0.00189901, -0.00198655, 0.0024229, 0.00949648, -0.035, 0.02, 0.04)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("4_ky5d6")
+
+[node name="FistCollisionShape3D" type="CollisionShape3D" parent="YBot/GeneralSkeleton/RightHand/Area3D"]
+transform = Transform3D(1, 0, -1.86265e-09, 5.96046e-08, 1, -1.11759e-08, 2.79397e-09, 7.45058e-09, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_jveve")
+disabled = true
+debug_color = Color(1, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YBot"]
+libraries = {
+&"": SubResource("AnimationLibrary_k33qo"),
+&"ybot_animation_library": ExtResource("4_fr12m")
+}
+autoplay = "ybot_animation_library/unarmed_walking"
+
+[node name="AnimationTree" type="AnimationTree" parent="YBot" node_paths=PackedStringArray("movement_component")]
+tree_root = SubResource("AnimationNodeBlendTree_wvt0m")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Locomotion/blend_position = 1.0
+parameters/Moving/blend_amount = 1.0
+parameters/PunchStanding/active = false
+parameters/PunchStanding/internal_active = false
+parameters/PunchStanding/request = 0
+parameters/PunchWalking/active = false
+parameters/PunchWalking/internal_active = false
+parameters/PunchWalking/request = 0
+script = ExtResource("5_jveve")
+movement_component = NodePath("../../MovementComponent")
+
+[node name="CharacterCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.902, 0)
+shape = SubResource("CapsuleShape3D_vu2ii")
+
+[node name="PlayerControllerComponent" type="Node" parent="." node_paths=PackedStringArray("interaction_probe", "movement", "camera_pivot", "combat")]
+script = ExtResource("3_ypqra")
+interaction_probe = NodePath("../YBot/GeneralSkeleton/Head/InteractionProbeComponent")
+movement = NodePath("../MovementComponent")
+camera_pivot = NodePath("../PlayerCamera")
+combat = NodePath("../PlayerCombatComponent")
+
+[node name="PlayerCamera" parent="." instance=ExtResource("4_cg1dj")]
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("5_d1o3u")
+can_sprint = true
+sprint_speed = 4.0
+
+[node name="PlayerHUD" parent="." instance=ExtResource("7_fdjgc")]
+
+[node name="PlayerCombatComponent" type="Node" parent="." node_paths=PackedStringArray("fist_collision")]
+script = ExtResource("9_bx55h")
+fist_collision = NodePath("../YBot/GeneralSkeleton/RightHand/Area3D")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("10_di0nh")
+
+[connection signal="collided" from="YBot/GeneralSkeleton/Head/InteractionProbeComponent" to="Notification" method="_on_interaction_probe_collided"]
+[connection signal="punch" from="PlayerCombatComponent" to="YBot/AnimationTree" method="_on_player_combat_component_punch"]
+
+[editable path="YBot"]
