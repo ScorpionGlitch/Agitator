@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b244e0t5ln67t"
-path="res://.godot/imported/Y Bot.fbx-648ae273e61a642c534907ec29b8d0c5.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/Y Bot.fbx"
-dest_files=["res://.godot/imported/Y Bot.fbx-648ae273e61a642c534907ec29b8d0c5.scn"]
 
 [params]
 

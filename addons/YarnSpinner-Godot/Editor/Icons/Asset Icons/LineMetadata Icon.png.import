@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6obc03di2gmu"
-path="res://.godot/imported/LineMetadata Icon.png-fe2ac6bdf8e269cd7d8d0a3fdce524ed.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://addons/YarnSpinner-Godot/Editor/Icons/Asset Icons/LineMetadata Icon.png"
-dest_files=["res://.godot/imported/LineMetadata Icon.png-fe2ac6bdf8e269cd7d8d0a3fdce524ed.ctex"]
 
 [params]
 

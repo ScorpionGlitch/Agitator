@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://b3ijhoiigrnn7"
-path="res://.godot/imported/unarmed_punching_left.fbx-38c67954870233413b280ddbae0d7f5f.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/unarmed_punching_left.fbx"
-dest_files=["res://.godot/imported/unarmed_punching_left.fbx-38c67954870233413b280ddbae0d7f5f.res"]
 
 [params]
 

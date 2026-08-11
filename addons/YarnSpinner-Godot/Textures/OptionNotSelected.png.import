@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7vg7k51tign2"
-path="res://.godot/imported/OptionNotSelected.png-f4855885108e18651a8e0401bca4d153.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://addons/YarnSpinner-Godot/Textures/OptionNotSelected.png"
-dest_files=["res://.godot/imported/OptionNotSelected.png-f4855885108e18651a8e0401bca4d153.ctex"]
 
 [params]
 

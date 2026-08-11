@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtmu0ruxo78d6"
-path="res://.godot/imported/mini_YarnSpinnerLogo.png-2e8e228bdff0dcc5c590fec17d807ee7.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://addons/YarnSpinner-Godot/Editor/Icons/mini_YarnSpinnerLogo.png"
-dest_files=["res://.godot/imported/mini_YarnSpinnerLogo.png-2e8e228bdff0dcc5c590fec17d807ee7.ctex"]
 
 [params]
 

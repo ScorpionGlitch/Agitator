@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://dnhrer080i3lk"
-path="res://.godot/imported/melee_hit_to_body.fbx-7b9785bd75a9469250d37eadb8876579.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/melee_hit_to_body.fbx"
-dest_files=["res://.godot/imported/melee_hit_to_body.fbx-7b9785bd75a9469250d37eadb8876579.res"]
 
 [params]
 

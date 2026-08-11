@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://cdqul5qe3v8h5"
-path="res://.godot/imported/box_lift_place.fbx-0c00f14fd4e50195299e85056faaf2f2.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/box_lift_place.fbx"
-dest_files=["res://.godot/imported/box_lift_place.fbx-0c00f14fd4e50195299e85056faaf2f2.res"]
 
 [params]
 

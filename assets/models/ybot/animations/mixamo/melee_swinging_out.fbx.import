@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://d2de5mr7cf1os"
-path="res://.godot/imported/melee_swinging_out.fbx-7c2ab3cce6048f3e157d2574b4f1d326.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/melee_swinging_out.fbx"
-dest_files=["res://.godot/imported/melee_swinging_out.fbx-7c2ab3cce6048f3e157d2574b4f1d326.res"]
 
 [params]
 

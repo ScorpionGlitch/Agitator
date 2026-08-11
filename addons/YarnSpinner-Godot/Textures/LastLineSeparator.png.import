@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6t57iuuuho7i"
-path="res://.godot/imported/LastLineSeparator.png-cd4a48c322f4b772177308a44699622c.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://addons/YarnSpinner-Godot/Textures/LastLineSeparator.png"
-dest_files=["res://.godot/imported/LastLineSeparator.png-cd4a48c322f4b772177308a44699622c.ctex"]
 
 [params]
 

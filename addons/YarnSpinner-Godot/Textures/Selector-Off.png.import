@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lfaxbaloy5nb"
-path="res://.godot/imported/Selector-Off.png-677490ed91e42caf406771206456e65e.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://addons/YarnSpinner-Godot/Textures/Selector-Off.png"
-dest_files=["res://.godot/imported/Selector-Off.png-677490ed91e42caf406771206456e65e.ctex"]
 
 [params]
 

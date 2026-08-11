@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://dfwiae8xt6fh"
-path="res://.godot/imported/melee_kicking.fbx-c5fc73ea8674fa5ccf29eab3e01633aa.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/melee_kicking.fbx"
-dest_files=["res://.godot/imported/melee_kicking.fbx-c5fc73ea8674fa5ccf29eab3e01633aa.res"]
 
 [params]
 

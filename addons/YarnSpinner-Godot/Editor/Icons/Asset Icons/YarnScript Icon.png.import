@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7um74k7m3ydp"
-path="res://.godot/imported/YarnScript Icon.png-9aa6b9777a8da82ea8e62dbfbd2a4e85.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://addons/YarnSpinner-Godot/Editor/Icons/Asset Icons/YarnScript Icon.png"
-dest_files=["res://.godot/imported/YarnScript Icon.png-9aa6b9777a8da82ea8e62dbfbd2a4e85.ctex"]
 
 [params]
 

@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca568aq8y4ugp"
-path="res://.godot/imported/LastLineBalloon.png-79a25eb2c77f87ce2f5df9e289cf3e81.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://addons/YarnSpinner-Godot/Textures/LastLineBalloon.png"
-dest_files=["res://.godot/imported/LastLineBalloon.png-79a25eb2c77f87ce2f5df9e289cf3e81.ctex"]
 
 [params]
 

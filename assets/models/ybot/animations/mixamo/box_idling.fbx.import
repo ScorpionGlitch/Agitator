@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://csb8gmcwhefys"
-path="res://.godot/imported/box_idling.fbx-8ae1e34e7af9f764338b9e735a2597d6.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/box_idling.fbx"
-dest_files=["res://.godot/imported/box_idling.fbx-8ae1e34e7af9f764338b9e735a2597d6.res"]
 
 [params]
 

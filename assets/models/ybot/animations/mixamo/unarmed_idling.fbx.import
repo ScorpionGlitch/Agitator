@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://dletwqn0yeb77"
-path="res://.godot/imported/unarmed_idling.fbx-59fb10db9182c2759152cab4edecf501.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/unarmed_idling.fbx"
-dest_files=["res://.godot/imported/unarmed_idling.fbx-59fb10db9182c2759152cab4edecf501.res"]
 
 [params]
 

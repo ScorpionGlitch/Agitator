@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://bw8n4sesea6ak"
-path="res://.godot/imported/box_jogging.fbx-a3d007ff1dafd0381d2d31c1e9d4bc44.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/box_jogging.fbx"
-dest_files=["res://.godot/imported/box_jogging.fbx-a3d007ff1dafd0381d2d31c1e9d4bc44.res"]
 
 [params]
 

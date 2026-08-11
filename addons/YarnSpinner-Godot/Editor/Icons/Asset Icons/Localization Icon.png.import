@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6on15lhw1d2c"
-path="res://.godot/imported/Localization Icon.png-456fc865716a992c113559b5fcd123e8.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://addons/YarnSpinner-Godot/Editor/Icons/Asset Icons/Localization Icon.png"
-dest_files=["res://.godot/imported/Localization Icon.png-456fc865716a992c113559b5fcd123e8.ctex"]
 
 [params]
 

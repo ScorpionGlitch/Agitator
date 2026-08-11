@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cda2iagv7v4gh"
-path="res://.godot/imported/drone.fbx-2e18084c69f644beb06ae274cbe2c9d6.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/drone/drone.fbx"
-dest_files=["res://.godot/imported/drone.fbx-2e18084c69f644beb06ae274cbe2c9d6.scn"]
 
 [params]
 

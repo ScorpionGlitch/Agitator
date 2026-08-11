@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://ysslw5gy73no"
-path="res://.godot/imported/unarmed_walking.fbx-d2e06125cc68e1aa31bf1b783f57eaf8.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/unarmed_walking.fbx"
-dest_files=["res://.godot/imported/unarmed_walking.fbx-d2e06125cc68e1aa31bf1b783f57eaf8.res"]
 
 [params]
 

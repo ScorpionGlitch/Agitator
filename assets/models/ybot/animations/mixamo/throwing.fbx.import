@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://c4uusc16hlbst"
-path="res://.godot/imported/throwing.fbx-36978f16b30ac1b688cf10712c994f18.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/throwing.fbx"
-dest_files=["res://.godot/imported/throwing.fbx-36978f16b30ac1b688cf10712c994f18.res"]
 
 [params]
 

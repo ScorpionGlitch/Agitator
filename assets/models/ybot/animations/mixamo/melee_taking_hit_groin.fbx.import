@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://da7b12m418n1n"
-path="res://.godot/imported/melee_taking_hit_groin.fbx-de2dff56d955c5e4f411c2a9ffa333e3.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/melee_taking_hit_groin.fbx"
-dest_files=["res://.godot/imported/melee_taking_hit_groin.fbx-de2dff56d955c5e4f411c2a9ffa333e3.res"]
 
 [params]
 

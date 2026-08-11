@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://dag3a0id7orb"
-path="res://.godot/imported/unarmed_dying.fbx-3806c0770ff7e561bfd15c57cb0df499.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/unarmed_dying.fbx"
-dest_files=["res://.godot/imported/unarmed_dying.fbx-3806c0770ff7e561bfd15c57cb0df499.res"]
 
 [params]
 

@@ -4,12 +4,11 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://bnbouwmsnclhi"
-path="res://.godot/imported/melee_drawing.fbx-8d6c16b2bbad83b0f334e7f77b578de1.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/ybot/animations/mixamo/melee_drawing.fbx"
-dest_files=["res://.godot/imported/melee_drawing.fbx-8d6c16b2bbad83b0f334e7f77b578de1.res"]
 
 [params]
 
