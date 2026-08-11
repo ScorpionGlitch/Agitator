@@ -1,0 +1,52 @@
+[gd_resource type="AnimationLibrary" load_steps=24 format=3 uid="uid://8oqctqdtmfaa"]
+
+[ext_resource type="Animation" uid="uid://hqd3xoruqf52" path="res://assets/models/ybot/animations/unarmed_idling.res" id="2_8ivdl"]
+[ext_resource type="Animation" uid="uid://bcmh46dpe2agt" path="res://assets/models/ybot/animations/t_pose.res" id="2_li7rf"]
+[ext_resource type="Animation" uid="uid://blms74x4etj4n" path="res://assets/models/ybot/animations/box_idling.res" id="3_lbubb"]
+[ext_resource type="Animation" uid="uid://so4pci1m012t" path="res://assets/models/ybot/animations/box_jogging.res" id="4_qa1cn"]
+[ext_resource type="Animation" uid="uid://dbkrth257moh2" path="res://assets/models/ybot/animations/box_lift_place.res" id="5_6gl1d"]
+[ext_resource type="Animation" uid="uid://j0ioy0cj35of" path="res://assets/models/ybot/animations/melee_drawing.res" id="6_h4q0r"]
+[ext_resource type="Animation" uid="uid://b6cku6b48n3x5" path="res://assets/models/ybot/animations/melee_dying.res" id="7_4wucw"]
+[ext_resource type="Animation" uid="uid://vof5h4xvknar" path="res://assets/models/ybot/animations/melee_hit_to_body.res" id="8_2ujhb"]
+[ext_resource type="Animation" uid="uid://55wvb3dnheum" path="res://assets/models/ybot/animations/melee_idling.res" id="9_uubuu"]
+[ext_resource type="Animation" uid="uid://cwridl8ep175b" path="res://assets/models/ybot/animations/melee_kicking.res" id="10_hu0oq"]
+[ext_resource type="Animation" uid="uid://b4d44bkqqfox3" path="res://assets/models/ybot/animations/melee_put_away.res" id="11_hyvgh"]
+[ext_resource type="Animation" uid="uid://c4ghr3pxs0qcx" path="res://assets/models/ybot/animations/melee_running.res" id="12_k8bqd"]
+[ext_resource type="Animation" uid="uid://43hpi6wug15r" path="res://assets/models/ybot/animations/melee_swinging_in.res" id="13_dtwdd"]
+[ext_resource type="Animation" uid="uid://cs683g8u720yo" path="res://assets/models/ybot/animations/melee_swinging_out.res" id="14_6rvu8"]
+[ext_resource type="Animation" uid="uid://dimkkdaq5fdd5" path="res://assets/models/ybot/animations/melee_taking_hit_body.res" id="15_b3hbq"]
+[ext_resource type="Animation" uid="uid://ckc17qqtrjst5" path="res://assets/models/ybot/animations/melee_taking_hit_groin.res" id="16_r12bv"]
+[ext_resource type="Animation" uid="uid://cfrcyyrpfjcgn" path="res://assets/models/ybot/animations/melee_walking.res" id="17_0seb3"]
+[ext_resource type="Animation" uid="uid://dgesltu2v8ogl" path="res://assets/models/ybot/animations/throwing.res" id="18_tknqy"]
+[ext_resource type="Animation" uid="uid://8qnkbkdnad2w" path="res://assets/models/ybot/animations/unarmed_dying.res" id="19_0mdig"]
+[ext_resource type="Animation" uid="uid://csdm28pm633ln" path="res://assets/models/ybot/animations/unarmed_punching_left.res" id="20_a8cwu"]
+[ext_resource type="Animation" uid="uid://bq1iao7ir4l1p" path="res://assets/models/ybot/animations/unarmed_punching_right.res" id="21_ahlsr"]
+[ext_resource type="Animation" uid="uid://d4jtctyj1ix2r" path="res://assets/models/ybot/animations/unarmed_running.res" id="22_vi5ow"]
+[ext_resource type="Animation" uid="uid://86hp8p6yqxp1" path="res://assets/models/ybot/animations/unarmed_walking.res" id="23_fmrjy"]
+
+[resource]
+_data = {
+&"box_idling": ExtResource("3_lbubb"),
+&"box_jogging": ExtResource("4_qa1cn"),
+&"box_lift_place": ExtResource("5_6gl1d"),
+&"melee_drawing": ExtResource("6_h4q0r"),
+&"melee_dying": ExtResource("7_4wucw"),
+&"melee_hit_to_body": ExtResource("8_2ujhb"),
+&"melee_idling": ExtResource("9_uubuu"),
+&"melee_kicking": ExtResource("10_hu0oq"),
+&"melee_put_away": ExtResource("11_hyvgh"),
+&"melee_running": ExtResource("12_k8bqd"),
+&"melee_swinging_in": ExtResource("13_dtwdd"),
+&"melee_swinging_out": ExtResource("14_6rvu8"),
+&"melee_taking_hit_body": ExtResource("15_b3hbq"),
+&"melee_taking_hit_groin": ExtResource("16_r12bv"),
+&"melee_walking": ExtResource("17_0seb3"),
+&"t_pose": ExtResource("2_li7rf"),
+&"throwing": ExtResource("18_tknqy"),
+&"unarmed_dying": ExtResource("19_0mdig"),
+&"unarmed_idling": ExtResource("2_8ivdl"),
+&"unarmed_punching_left": ExtResource("20_a8cwu"),
+&"unarmed_punching_right": ExtResource("21_ahlsr"),
+&"unarmed_running": ExtResource("22_vi5ow"),
+&"unarmed_walking": ExtResource("23_fmrjy")
+}

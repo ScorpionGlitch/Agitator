@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkl44bkyntnlr"]
+
+[ext_resource type="Texture2D" uid="uid://duwgko8prk62d" path="res://assets/icons/coin.png" id="1_5mo02"]
+[ext_resource type="Script" uid="uid://s5511p4k6cev" path="res://scripts/characters/player/player_hud.gd" id="1_20vig"]
+
+[node name="PlayerHUD" type="CanvasLayer"]
+script = ExtResource("1_20vig")
+
+[node name="Coins" type="ColorRect" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 116.0
+grow_horizontal = 0
+color = Color(0, 0, 1, 0.788235)
+
+[node name="Icon" type="TextureRect" parent="Coins"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = -10.0
+grow_vertical = 2
+texture = ExtResource("1_5mo02")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Amount" type="Label" parent="Coins"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="QuestTracker" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 316.0
+offset_bottom = 216.0
+color = Color(0, 0, 1, 0.788235)
+
+[node name="Details" type="VBoxContainer" parent="QuestTracker"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="QuestTracker/Details"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "title"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Objectives" type="VBoxContainer" parent="QuestTracker/Details"]
+layout_mode = 2
+size_flags_vertical = 3

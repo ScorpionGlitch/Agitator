@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5k7wap6avlx6"]
+
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_6tg50"]
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_tkpht"]
+[ext_resource type="Script" path="res://scenes/camera_spring_arm.gd" id="3_kdx7i"]
+[ext_resource type="Script" path="res://scenes/camera_follow.gd" id="4_jqsdb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nn358"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_injkw"]
+transparency = 1
+albedo_color = Color(0, 1, 0, 0.25098)
+
+[sub_resource type="PrismMesh" id="PrismMesh_i1130"]
+material = SubResource("StandardMaterial3D_injkw")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vu2ii"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mkfmc"]
+radius = 0.6
+
+[node name="Character" type="CharacterBody3D"]
+script = ExtResource("1_tkpht")
+can_sprint = true
+can_freefly = true
+
+[node name="CharacterMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_nn358")
+
+[node name="ForwardArrow" type="MeshInstance3D" parent="CharacterMesh"]
+transform = Transform3D(-1, 8.74228e-08, 9.55339e-16, 0, -4.37114e-08, 0.25, 8.74228e-08, 1, 1.09278e-08, 8.74228e-08, 0, 1)
+mesh = SubResource("PrismMesh_i1130")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_vu2ii")
+
+[node name="PlayerController" type="Node" parent="."]
+script = ExtResource("1_6tg50")
+input_back = "move_backward"
+input_freefly = "debug_freefly"
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="SpringArmPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("3_kdx7i")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot"]
+collision_mask = 3
+shape = SubResource("SphereShape3D_mkfmc")
+spring_length = 6.0
+
+[node name="SpringPosition" type="Node3D" parent="SpringArmPivot/SpringArm3D"]
+
+[node name="Camera3D" type="Camera3D" parent="SpringArmPivot" node_paths=PackedStringArray("spring_position")]
+script = ExtResource("4_jqsdb")
+spring_position = NodePath("../SpringArm3D/SpringPosition")
+
+[connection signal="freefly_pressed" from="PlayerController" to="." method="_toggle_freefly"]
+[connection signal="jump_pressed" from="PlayerController" to="." method="_jump"]
+[connection signal="sprint_pressed" from="PlayerController" to="." method="_start_sprinting"]

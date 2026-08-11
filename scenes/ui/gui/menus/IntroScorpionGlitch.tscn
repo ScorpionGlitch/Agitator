@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bks4die8lt871"]
+
+[ext_resource type="Texture2D" uid="uid://ifbnhqhbceko" path="res://assets/textures/scorpion_glitch.png" id="1_73o1y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vnq6w"]
+texture = ExtResource("1_73o1y")
+
+[node name="IntroScorpionGlitch" type="Node2D"]
+position = Vector2(0, -1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_vnq6w")

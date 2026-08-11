@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpgum0hhbga"]
+
+[ext_resource type="Script" uid="uid://djbedk8rjro4q" path="res://scripts/dialog/dialog_manager.gd" id="1_ppux8"]
+[ext_resource type="Script" uid="uid://bleb3u6g5dyrj" path="res://scripts/dialog/dialog_ui.gd" id="2_kby45"]
+
+[node name="DialogManager" type="Node2D"]
+script = ExtResource("1_ppux8")
+
+[node name="DialogUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_kby45")
